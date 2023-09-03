@@ -2,11 +2,10 @@ import type { Dispatch } from 'react'
 
 import { Square } from './Square'
 
-import type { GameAction } from '../store/action'
-import type { BoardState } from '../store/state'
+import type { GameAction, Board } from '../../context'
 
 type BoardProps = {
-  state: BoardState
+  state: Board
   dispatch: Dispatch<GameAction>
 }
 

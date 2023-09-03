@@ -1,15 +1,14 @@
 import { useReducer, type Dispatch, useContext } from 'react'
 
+import { GameContext } from '../../context'
 import styles from '../../styles/square.module.scss'
-import { GameContext } from '../store/context'
 
 import { Disc } from './Disc'
 
-import type { GameAction } from '../store/action'
-import type { SquareState } from '../store/state'
+import type { GameAction, Square } from '../../context'
 
 type SquareProps = {
-  state: SquareState
+  state: Square
   dispatch: Dispatch<GameAction>
 }
 

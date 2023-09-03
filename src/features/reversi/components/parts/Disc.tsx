@@ -1,7 +1,7 @@
-import type { DiscState } from '../store/state'
+import type { Disc } from '../../context'
 
 type SquareProps = {
-  state: DiscState
+  state: Disc
   opacity?: boolean
 }
 

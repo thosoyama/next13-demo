@@ -1,11 +1,10 @@
 import type { Dispatch } from 'react'
 import { useEffect, useReducer } from 'react'
 
-import { reducer } from '../components/store/reducer'
-import { initialState } from '../components/store/state'
+import { reducer } from '../context/reducer'
+import { initialState } from '../context/state'
 
-import type { GameAction } from '../components/store/action'
-import type { GameState } from '../components/store/state'
+import type { GameAction, GameState } from '../context'
 
 type UseGameOption = {
   passDelay: number
@@ -22,7 +21,7 @@ export const useGame = (option: UseGameOption = defaultOption) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    if (!state.pass || state.win) {
+    if (!state.pass || state.winner !== 0) {
       return
     }
     setTimeout(() => dispatch({ type: 'PASS' }), option.passDelay)
