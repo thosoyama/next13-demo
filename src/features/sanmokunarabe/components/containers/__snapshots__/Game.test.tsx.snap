@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game renders game unchanged 1`] = `
+<div>
+  <div
+    class="game"
+  >
+    <div
+      class="game-board"
+    >
+      <div
+        class="status"
+      >
+        Next player: X
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+        <button
+          class="square"
+          data-testid="square"
+        />
+      </div>
+    </div>
+    <div
+      class="game-info"
+    >
+      <ol>
+        <li>
+          <button>
+            Go to game start
+          </button>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+`;

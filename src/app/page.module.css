@@ -1,0 +1,5 @@
+.root {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgba(var(--background-end-rgb), 0.8))
+    rgb(var(--background-start-rgb), 0.5);
+}

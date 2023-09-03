@@ -1,0 +1,5 @@
+describe('FaceIcon', () => {
+  it('none', () => {
+    //
+  })
+})
