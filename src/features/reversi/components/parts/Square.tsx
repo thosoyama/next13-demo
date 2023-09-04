@@ -1,26 +1,26 @@
-import { useReducer, type Dispatch, useContext } from 'react'
+import { useReducer, useContext } from 'react'
 
-import { GameContext } from '../../context'
+import { DispatchContext, GameContext } from '../../context'
 import styles from '../../styles/square.module.scss'
 
 import { Disc } from './Disc'
 
-import type { GameAction, Square } from '../../context'
+import type { Square } from '../../context'
 
 type SquareProps = {
   state: Square
-  dispatch: Dispatch<GameAction>
 }
 
 /**
  * マス目
  */
-export function Square({ state, dispatch }: SquareProps) {
+export function Square({ state }: SquareProps) {
   const { x, y } = state
   const place = state.disc === 0 && state.place
 
   const [hasVirtualDisc, toggleVirtualDisc] = useReducer((s: boolean) => !s, false)
   const { first } = useContext(GameContext)
+  const dispatch = useContext(DispatchContext)
 
   const bgColor = state.place ? 'bg-green-600' : 'bg-green-700'
   const cursor = place ? 'cursor-pointer' : ''
