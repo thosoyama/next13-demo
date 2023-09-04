@@ -1,16 +1,16 @@
 import type { Disc } from '../../context'
 
 type SquareProps = {
-  state: Disc
+  item: Disc
   opacity?: boolean
 }
 
 /**
  * 石
  */
-export function Disc({ state, opacity = false }: SquareProps) {
-  const color = state === 1 ? 'bg-black' : 'bg-white'
-  const borderColor = state === 1 ? 'border-gray-500' : 'border-gray-600'
+export function Disc({ item, opacity = false }: SquareProps) {
+  const color = item === 1 ? 'bg-black' : 'bg-white'
+  const borderColor = item === 1 ? 'border-gray-500' : 'border-gray-600'
 
   return (
     <div

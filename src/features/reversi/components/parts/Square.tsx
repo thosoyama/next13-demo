@@ -8,21 +8,21 @@ import { Disc } from './Disc'
 import type { Square } from '../../context'
 
 type SquareProps = {
-  state: Square
+  item: Square
 }
 
 /**
  * マス目
  */
-export function Square({ state }: SquareProps) {
-  const { x, y } = state
-  const place = state.disc === 0 && state.place
+export function Square({ item }: SquareProps) {
+  const { x, y } = item
+  const place = item.disc === 0 && item.place
 
   const [hasVirtualDisc, toggleVirtualDisc] = useReducer((s: boolean) => !s, false)
   const { first } = useContext(GameContext)
   const dispatch = useContext(DispatchContext)
 
-  const bgColor = state.place ? 'bg-green-600' : 'bg-green-700'
+  const bgColor = item.place ? 'bg-green-600' : 'bg-green-700'
   const cursor = place ? 'cursor-pointer' : ''
   const animation = place ? styles.animation : ''
 
@@ -33,8 +33,8 @@ export function Square({ state }: SquareProps) {
       onMouseOver={toggleVirtualDisc}
       onMouseOut={toggleVirtualDisc}
     >
-      {state.disc !== 0 && <Disc state={state.disc} />}
-      {state.place && hasVirtualDisc && <Disc state={first ? 1 : -1} opacity />}
+      {item.disc !== 0 && <Disc item={item.disc} />}
+      {item.place && hasVirtualDisc && <Disc item={first ? 1 : -1} opacity />}
     </div>
   )
 }
