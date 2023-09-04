@@ -53,6 +53,7 @@ export const reducer = (state: GameState, action: GameAction): GameState => {
         ...state,
         board: nextBoard,
         winner,
+        first: winner === 0 ? !state.first : state.first,
         pass: false,
       }
     }
