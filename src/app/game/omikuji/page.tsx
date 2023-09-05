@@ -16,7 +16,7 @@ export default function Omikuji() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <button className="border border-sky-500" onClick={handleOmikuji}>
+      <button type="button" className="border border-sky-500" onClick={handleOmikuji}>
         おみくじを引く
       </button>
       <p className="p-24 text-5xl">{result}</p>

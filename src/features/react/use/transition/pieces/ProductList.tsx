@@ -5,8 +5,8 @@ import styles from '../styles/useTransition.module.css'
 const ProductList = ({ products }: { products: string[] }) => {
   return (
     <ul className={styles.ul}>
-      {products.map((product, index) => (
-        <li key={index} className={styles.li}>
+      {products.map((product) => (
+        <li key={product} className={styles.li}>
           {product}
         </li>
       ))}

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { GameContext, type Board } from '../../context'
+import { GameContext } from '../../context'
 
 import { Square } from './Square'
 
@@ -17,10 +17,10 @@ export function Board() {
         .map((square) => (
           <Square key={`${square.x}-${square.y}-${square.disc}-${square.place}`} item={square} />
         ))}
-      <div className="absolute left-1/4 top-1/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black"></div>
-      <div className="absolute left-3/4 top-1/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black"></div>
-      <div className="absolute left-1/4 top-3/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black"></div>
-      <div className="absolute left-3/4 top-3/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black"></div>
+      <div className="absolute left-1/4 top-1/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black" />
+      <div className="absolute left-3/4 top-1/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black" />
+      <div className="absolute left-1/4 top-3/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black" />
+      <div className="absolute left-3/4 top-3/4 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-black" />
     </div>
   )
 }

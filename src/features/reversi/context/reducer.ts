@@ -1,6 +1,6 @@
 import { aggregate, move, noPlace, search, update } from '../util/board'
 
-import { getInitialState, type GameState } from './state'
+import { type GameState, getInitialState } from './state'
 
 import type { GameAction } from './action'
 

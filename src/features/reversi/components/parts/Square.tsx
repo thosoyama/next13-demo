@@ -1,14 +1,14 @@
-import { useReducer, useContext } from 'react'
+import { useContext, useReducer } from 'react'
 
 import { DispatchContext, GameContext } from '../../context'
 import styles from '../../styles/square.module.scss'
 
 import { Disc } from './Disc'
 
-import type { Square } from '../../context'
+import type { SquareState } from '../../context'
 
 type SquareProps = {
-  item: Square
+  item: SquareState
 }
 
 /**
@@ -27,6 +27,8 @@ export function Square({ item }: SquareProps) {
   const animation = place ? styles.animation : ''
 
   return (
+    // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+    // rome-ignore lint/a11y/useKeyWithMouseEvents: <explanation>
     <div
       className={`relative flex h-full w-full  items-center justify-center  border border-black ${bgColor} ${cursor} ${animation}`}
       onClick={() => place && dispatch({ type: 'MOVE', payload: { x, y } })}

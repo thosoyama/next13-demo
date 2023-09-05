@@ -19,30 +19,17 @@ exports[`Game renders game unchanged 1`] = `
         <button
           class="square"
           data-testid="square"
+          type="button"
         />
         <button
           class="square"
           data-testid="square"
+          type="button"
         />
         <button
           class="square"
           data-testid="square"
-        />
-      </div>
-      <div
-        class="board-row"
-      >
-        <button
-          class="square"
-          data-testid="square"
-        />
-        <button
-          class="square"
-          data-testid="square"
-        />
-        <button
-          class="square"
-          data-testid="square"
+          type="button"
         />
       </div>
       <div
@@ -51,14 +38,36 @@ exports[`Game renders game unchanged 1`] = `
         <button
           class="square"
           data-testid="square"
+          type="button"
         />
         <button
           class="square"
           data-testid="square"
+          type="button"
         />
         <button
           class="square"
           data-testid="square"
+          type="button"
+        />
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+          data-testid="square"
+          type="button"
+        />
+        <button
+          class="square"
+          data-testid="square"
+          type="button"
+        />
+        <button
+          class="square"
+          data-testid="square"
+          type="button"
         />
       </div>
     </div>
@@ -67,7 +76,9 @@ exports[`Game renders game unchanged 1`] = `
     >
       <ol>
         <li>
-          <button>
+          <button
+            type="button"
+          >
             Go to game start
           </button>
         </li>

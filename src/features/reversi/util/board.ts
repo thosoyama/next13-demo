@@ -1,11 +1,18 @@
-import type { Board, Disc } from '../context/state'
+import type { BoardState, DiscState } from '../context/state'
+
+const initialSquares: [number, number, DiscState][] = [
+  [3, 3, -1],
+  [3, 4, 1],
+  [4, 3, 1],
+  [4, 4, -1],
+]
 
 /**
  * 初期盤面
  */
-export function getInitialBoard() {
+export function getInitialBoard(squares = initialSquares) {
   // 8 x 8
-  const board: Board = Array.from({ length: 8 }, (_, y) =>
+  const board: BoardState = Array.from({ length: 8 }, (_, y) =>
     Array.from({ length: 8 }, (_, x) => ({
       x,
       y,
@@ -15,10 +22,9 @@ export function getInitialBoard() {
   )
 
   // 初期石を置く
-  board[3][3].disc = -1
-  board[3][4].disc = 1
-  board[4][3].disc = 1
-  board[4][4].disc = -1
+  squares.forEach(([y, x, disc]) => {
+    board[y][x].disc = disc
+  })
 
   // 置ける場所を更新
   return update(board, true)
@@ -39,7 +45,7 @@ const directions = [
 /**
  * 指定したマスに石が置けるか調べる
  */
-export function search(board: Board, first: boolean, cx: number, cy: number) {
+export function search(board: BoardState, first: boolean, cx: number, cy: number) {
   const currentDisc = first ? 1 : -1
 
   // 裏返せる座標を取得
@@ -97,7 +103,7 @@ export function search(board: Board, first: boolean, cx: number, cy: number) {
 /**
  * 置ける場所を更新
  */
-export function update(board: Board, first: boolean) {
+export function update(board: BoardState, first: boolean) {
   return board.map((squares) =>
     squares.map((square) => ({
       ...square,
@@ -109,7 +115,7 @@ export function update(board: Board, first: boolean) {
 /**
  * 石を打つ
  */
-export function move(board: Board, positions: { x: number; y: number }[], disc: Disc) {
+export function move(board: BoardState, positions: { x: number; y: number }[], disc: DiscState) {
   return board.map((squares) =>
     squares.map((square) => ({
       ...square,
@@ -121,13 +127,14 @@ export function move(board: Board, positions: { x: number; y: number }[], disc: 
 /**
  * 集計
  */
-export function aggregate(board: Board) {
+export function aggregate(board: BoardState) {
   const fulfilled =
     board.flatMap((squares) => squares).filter((square) => square.disc === 0).length === 0
   const completed = complete(board, 1) || complete(board, -1)
   const first = board.flatMap((row) => row).filter((square) => square.disc === 1).length
   const second = board.flatMap((row) => row).filter((square) => square.disc === -1).length
-  const winner: Disc = !fulfilled && !completed ? 0 : first > second ? 1 : second > first ? -1 : 0
+  const winner: DiscState =
+    !fulfilled && !completed ? 0 : first > second ? 1 : second > first ? -1 : 0
 
   return {
     fulfilled,
@@ -143,7 +150,7 @@ export function aggregate(board: Board) {
 /**
  * 終わったか
  */
-export function complete(board: Board, disc: Disc) {
+export function complete(board: BoardState, disc: DiscState) {
   return board
     .flatMap((squares) => squares)
     .filter((square) => square.disc !== 0)
@@ -153,7 +160,7 @@ export function complete(board: Board, disc: Disc) {
 /**
  * 置く場所がない
  */
-export function noPlace(board: Board) {
+export function noPlace(board: BoardState) {
   return board
     .flatMap((squares) => squares)
     .filter((square) => square.disc === 0)

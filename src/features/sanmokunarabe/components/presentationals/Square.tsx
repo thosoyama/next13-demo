@@ -5,7 +5,7 @@ type SquareProps = {
 
 export function Square({ value, onSquareClick }: SquareProps) {
   return (
-    <button className="square" onClick={onSquareClick} data-testid="square">
+    <button type="button" className="square" onClick={onSquareClick} data-testid="square">
       {value}
     </button>
   )

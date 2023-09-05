@@ -1,7 +1,7 @@
 import type { Dispatch } from 'react'
 import { createContext } from 'react'
 
-import { getInitialState, type GameState } from './state'
+import { type GameState, getInitialState } from './state'
 
 import type { GameAction } from './action'
 

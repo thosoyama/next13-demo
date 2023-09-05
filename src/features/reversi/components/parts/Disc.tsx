@@ -1,7 +1,7 @@
-import type { Disc } from '../../context'
+import type { DiscState } from '../../context'
 
 type SquareProps = {
-  item: Disc
+  item: DiscState
   opacity?: boolean
   children?: React.ReactNode
 }

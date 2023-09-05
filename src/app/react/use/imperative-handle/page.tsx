@@ -81,7 +81,7 @@ function Form() {
   return (
     <div className="m-4">
       <InputField label="Name" onChange={(e) => setName(e.currentTarget.value)} apiRef={inputRef} />
-      <button onClick={onSubmitClick} className="m-2 border border-black p-2">
+      <button type="button" onClick={onSubmitClick} className="m-2 border border-black p-2">
         Submit
       </button>
     </div>

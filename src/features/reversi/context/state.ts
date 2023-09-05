@@ -1,21 +1,21 @@
 import { getInitialBoard } from '../util/board'
 
 // 0:なし 1:表 -1:裏
-export type Disc = 0 | 1 | -1
+export type DiscState = 0 | 1 | -1
 
-export type Square = {
+export type SquareState = {
   readonly x: number
   readonly y: number
-  disc: Disc
+  disc: DiscState
   place: boolean
 }
 
-export type Board = Square[][]
+export type BoardState = SquareState[][]
 
 export type GameState = {
-  board: Board
+  board: BoardState
   first: boolean
-  winner: Disc
+  winner: DiscState
   pass: boolean
   count: {
     first: number

@@ -1,7 +1,7 @@
 import { fizzBuzz } from './fizz-buzz'
 
 describe('fizz-buzz', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // rome-ignore lint/suspicious/noExplicitAny: <explanation>
   let spyLog: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]>
 
   beforeAll(() => {
