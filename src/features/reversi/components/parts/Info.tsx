@@ -17,7 +17,7 @@ export function Info() {
               <Disc item={1}>{state.count.first}</Disc>
             </div>
             <div className="ml-2 flex w-12 justify-center font-bold">
-              {state.first && state.winner === 1
+              {state.winner === 1
                 ? 'WIN'
                 : state.first && state.pass
                 ? 'PASS'
@@ -31,7 +31,7 @@ export function Info() {
               <Disc item={-1}>{state.count.second}</Disc>
             </div>
             <div className="ml-2 flex  w-12 justify-center font-bold">
-              {!state.first && state.winner === -1
+              {state.winner === -1
                 ? 'WIN'
                 : !state.first && state.pass
                 ? 'PASS'
